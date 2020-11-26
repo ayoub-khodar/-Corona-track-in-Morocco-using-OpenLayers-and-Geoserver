@@ -1,0 +1,10 @@
+!table
+!version 300
+!charset WindowsLatin1
+
+Definition Table
+  Type NATIVE Charset "WindowsLatin1"
+  Fields 3
+    REGION Float ;
+    NOM_REGION Char (50) ;
+    CENTRE_Rég Char (50) ;

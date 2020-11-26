@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des cas Corona au Maroc</title>
+    <script src="https://kit.fontawesome.com/1d8b2a613a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jQuery.js"></script>
+    <link rel="stylesheet" href='./libs/v6.2.1-dist/ol.css'>
+   <!-- creer le lien entre ca et la bibliotheque ( entre html et l api openlayers--> 
+   <script src = './libs/v6.2.1-dist/ol.js'></script>
+   <script src = "script.js"></script>   
+   <script src = "./libs/ol-layerswitcher.js"></script>
+   <link rel="stylesheet" href='./libs/ol-layerswitcher.css'>
+
+</head>
+<body >
+    <div class="navbar">
+        <div class="dropdown">
+          <button class="dropbtn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="https://www.sante.gov.ma/Pages/Accueil.aspx">Ministère de santé</a>
+            <a href="http://www.covidmaroc.ma/Pages/AccueilAR.aspx">COVID-19 Maroc</a>
+            <a href="http://www.ehtp.ac.ma/">Ecole Hassania des Travaux publics</a>
+          </div>
+        </div> 
+        <a>Platforme de suivi de cas COVID-19 au Maroc par région élaborée par KHODAR AYOUB et KHALIL ZAKARIA dans le cadre du projet SIG WEB</a>
+      </div>
+
+    </div>
+    <div class="tani" ><a class="anbcas">Nombre des cas</a></div>
+
+    <div class="tani" id="carte">  
+        <button  class="arrowbtnL" style="float:left">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <button class="arrowbtnR"  style="float:right">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+        <div id="carte1">
+            <a class="amap">Répartition des cas confirmés par le Covid-19</a>
+           <!-- <a class="amapregio">Répartition Régioanle</a>
+            <a class="amaprov">Répartition Provinciale</a>-->
+            <div class="tanileft" id="carte11" >
+             <!--   <a >Répartition Régionale</a>
+                <div id="tanileftcarte" class="tanileftcarte">
+                 
+                </div>-->
+            </div>
+            <div class="ol-popup" >
+                
+                <div id="overlay-container" class="overlay-container">
+                    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                    <br>
+                    
+                    <span class='overlay-text' id='feature-name'></span>
+                    <span class='overlay-text' id='feature-additional-info'></span>
+                </div>
+            </div>
+            
+             <!-- 
+            <div  id="carte12" class="taniright" >
+             
+                <div id="tanirightcarte" class="tanirightcarte"></div>
+            </div>-->
+           
+        </div>
+        
+        <div id="dynamicSpot" style="display:none;">
+           My dynamic content
+        </div>
+        <div id="carte2" style="display:none;">
+            <a class="amap2">Carte d'évolution</a>
+            <div class="tanionly" id="carte13" >
+                <div class="tanionlycarte" id="carte14">
+
+                </div>
+            </div>
+        </div>
+        
+       </div>
+
+
+    <div class="tani" id="courbe0">
+        <button  class="arrowbtnC1L" style="float:left">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div id="dynamicSpotCourbe1" style="display:none;">
+            My dynamic content
+         </div>
+        <div id="courbe1-1">
+            <a id="info" >Courbe 1</a>
+            
+        </div>
+        <div id="courbe1-2" style="display:none;">
+            <a  >Courbe 2</a>
+        </div>
+        <div id="courbe1-3" style="display:none;">
+            <a >Courbe 3</a>
+        </div>
+        <div id="courbe1-4" style="display:none;">
+            <a >Courbe 4</a>
+        </div>
+        <div id="courbe1-5" style="display:none;">
+            <a >Courbe 5</a>
+        </div>
+      
+        <button class="arrowbtnC1R"  style="float:right">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    <div class="talta" id="courbe" >
+        <button  class="arrowbtnC2L" style="float:left">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div id="dynamicSpotCourbe2" style="display:none;">
+            My dynamic content
+         </div>
+        <div id="courbe2-1">
+            <a  >Courbe 1</a>
+            
+        </div>
+        <div id="courbe2-2" style="display:none;">
+            <a  >Courbe 2</a>
+        </div>
+        <div id="courbe2-3" style="display:none;">
+            <a  >Courbe 3</a>
+        </div>
+        <div id="courbe2-4" style="display:none;">
+            <a >Courbe 4</a>
+        </div>
+     
+      
+        <button class="arrowbtnC2R"  style="float:right">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+    <div class="talta" id="gender" ><a class="agenrem">Masculain : 55%</a>
+        <div class="logo-genre">
+            <i class="fas fa-venus-mars" style=" font-size: 2.2em;color: #9933ff"></i>
+        </div>
+        <a class="agenref">Féminins : 45%</a>
+    </div>
+
+    <div class="talta" id="Exclus" >
+        <a class="aexc">Exclus</a>
+        <div class="logo">
+            <i class="fas fa-running" style=" font-size: 2.2em;color:#1a75ff"></i>
+            <a class="logoaexc" style="margin-bottom:36%;padding-top: 0px;font-size: 24px;">57 149</a>
+        </div>
+        
+    </div>
+    <div class="talta" id="Morts" ><a class="adec">Décédès</a>
+        <div class="logo">
+            <i class="fas fa-heart-broken" style=" font-size: 2.2em;color:red;padding-left:0px"></i>
+            <a class="logoam" style="margin-bottom:36%;padding-top: 0px;font-size: 24px;">186</a>
+        </div>
+
+    </div>
+    <div class="talta" id="gueris" ><a class="ague">Gueris</a>
+        <div class="logo">
+            <i class="fas fa-heartbeat" style=" font-size: 2.2em;color:pink"></i>
+            <a class="logoag" style="margin-bottom:36%;padding-top: 0px;font-size: 24px;">2461</a>
+        </div>
+
+    </div>
+    <div class="talta" id="moyage" ><a class="amoy">Moyenne des ages</a>
+        <div class="logo-age">
+            <i class="fas fa-user-clock" style=" font-size: 2.2em;color:green"></i>
+            <a class="logoamoyenne" style="margin-bottom:36%;padding-top: 0px;font-size: 24px;">56 ans</a>
+        </div>
+    
+    </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
